@@ -2,13 +2,13 @@
 
 /**
  * @file
- * Contains theme override functions and preprocess functions for the Boron theme.
+ * Contains theme override functions and preprocess functions for the abi theme.
  */
 
 /**
  * Changes the default meta content-type tag to the shorter HTML5 version
  */
-function boron_html_head_alter(&$head_elements) {
+function abi_html_head_alter(&$head_elements) {
   $head_elements['system_meta_content_type']['#attributes'] = array(
     'charset' => 'utf-8'
   );
@@ -17,7 +17,7 @@ function boron_html_head_alter(&$head_elements) {
 /**
  * Changes the search form to use the HTML5 "search" input attribute
  */
-function boron_preprocess_search_block_form(&$vars) {
+function abi_preprocess_search_block_form(&$vars) {
   $vars['search_form'] = str_replace('type="text"', 'type="search"', $vars['search_form']);
 }
 
@@ -26,7 +26,7 @@ function boron_preprocess_search_block_form(&$vars) {
  * Lifted from Adaptivetheme for D7, full credit to Jeff Burnz
  * ref: http://drupal.org/node/887600
  */
-function boron_preprocess_html(&$vars) {
+function abi_preprocess_html(&$vars) {
   // Ensure that the $vars['rdf'] variable is an object.
   if (!isset($vars['rdf']) || !is_object($vars['rdf'])) {
     $vars['rdf'] = new StdClass();
@@ -43,10 +43,10 @@ function boron_preprocess_html(&$vars) {
     $vars['rdf']->namespaces = '';
     $vars['rdf']->profile = '';
   }
-  
+
 
  // use the $html5shiv variable in their html.tpl.php
-  $element = array(  
+  $element = array(
     'element' => array(
     '#tag' => 'script',
     '#value' => '',
@@ -56,7 +56,7 @@ function boron_preprocess_html(&$vars) {
    ),
  );
 
- $shimset = theme_get_setting('boron_shim');
+ $shimset = theme_get_setting('abi_shim');
  $script = theme('html_tag', $element);
  //If the theme setting for adding the html5shim is checked, set the variable.
  if ($shimset == 1) { $vars['html5shim'] = "\n<!--[if lt IE 9]>\n" . $script . "<![endif]-->\n"; }
@@ -71,7 +71,7 @@ function boron_preprocess_html(&$vars) {
  * @return
  *   A string containing the breadcrumb output.
  */
-function boron_breadcrumb($vars) {
+function abi_breadcrumb($vars) {
   $breadcrumb = $vars['breadcrumb'];
   // Determine if we are to display the breadcrumb.
   $show_breadcrumb = theme_get_setting('breadcrumb_display');

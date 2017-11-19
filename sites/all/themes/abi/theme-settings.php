@@ -1,5 +1,5 @@
 <?php
-function boron_form_system_theme_settings_alter(&$form, &$form_state) {
+function abi_form_system_theme_settings_alter(&$form, &$form_state) {
 
   /**
    * Breadcrumb settings
@@ -48,10 +48,10 @@ function boron_form_system_theme_settings_alter(&$form, &$form_state) {
     '#type'  => 'fieldset',
     '#title' => t('Additional Libraries'),
   );
-  $form['libraries']['boron_shim'] = array(
+  $form['libraries']['abi_shim'] = array(
     '#type'          => 'checkbox',
     '#title'         => t('html5 Shim'),
-    '#default_value' => theme_get_setting('boron_shim'),
+    '#default_value' => theme_get_setting('abi_shim'),
     '#description'   => t('Add html5 shim to header')
   );
 

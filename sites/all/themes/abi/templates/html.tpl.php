@@ -42,7 +42,7 @@
   <?php print $scripts; ?>
   <?php if (!empty($html5shim)) { print $html5shim; } ?>
 </head>
-<body class="<?php print $classes; ?>" <?php print $attributes;?>>
+<body class="<?php print $classes; ?>" <?php print $attributes;?> data-spy="scroll" data-target="#navbar-scroll">
 
   <?php print $page_top; ?>
   <?php print $page; ?>
