@@ -1,29 +1,5 @@
-/* carousel */
-(function ($) {
-      Drupal.behaviors.owlCarousel =  {
-        attach: function(context, settings) {
-          $('#owl-testi').owlCarousel({
-          	navigation : false, // Show next and prev buttons
-          	slideSpeed : 300,
-          	autoHeight : true,
-          	singleItem:true
-          });
-          $('#screenshots').owlCarousel({
-          	items: 4,
-          	itemsCustom : [
-          		[0, 1],
-          		[480, 2],
-          		[768, 3],
-          		[992, 4]
-          		],
-              });
-        }
-      };
-    })(jQuery);
-
 /* smooth scroll */
-(function ($) {
-  $(function () {
+    $(function() {
         $('a[href*=#]:not([href=#])').click(function() {
             if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
 
@@ -38,44 +14,54 @@
             }
         });
     });
-  }) (jQuery);
 
 /* scrollspy */
-(function ($) {
 $('body').scrollspy({ target: '#navbar-scroll' })
 
 // Closes the Responsive Menu on Menu Item Click
 $('.navbar-collapse ul li a').click(function() {
     $('.navbar-toggle:visible').click();
 });
-}) (jQuery);
+
+/* carousel */
+$(document).ready(function() {
+$("#screenshots").owlCarousel({
+	items: 4,
+	itemsCustom : [
+		[0, 1],
+		[480, 2],
+		[768, 3],
+		[992, 4]
+		],
+    });
+$("#owl-testi").owlCarousel
+({
+	navigation : false, // Show next and prev buttons
+	slideSpeed : 300,
+	autoHeight : true,
+	singleItem:true
+});
+});
+
 
 /* sticky navigation */
-(function ($) {
-      Drupal.behaviors.menu =  {
-        attach: function(context, settings) {
+  $(document).ready(function(){
+    $("#menu").sticky({topSpacing:0});
+  });
 
-          $('#menu').sticky({topSpacing:0});
-        }
-      };
-    })(jQuery);
+jQuery(document).ready(function($) {
 
-  (function ($) {
-        Drupal.behaviors.preloader =  {
-          attach: function(context, settings) {
-            //$('#region, #area-list').selectbox();
-            $(window).load(function(){
-            $('#preloader').fadeOut('slow',function(){$(this).remove();});
-            });
+// site preloader -- also uncomment the div in the header and the css style for #preloader
+$(window).load(function(){
+	$('#preloader').fadeOut('slow',function(){$(this).remove();});
+});
 
-          }
-        };
-      })(jQuery);
+});
+
+
 
 /* scrollToTop */
-(function ($) {
-      Drupal.behaviors.scrollToTop =  {
-        attach: function(context, settings) {
+$(document).ready(function(){
 
 	//Check to see if the window is top if not then display button
 	$(window).scroll(function(){
@@ -92,10 +78,7 @@ $('.navbar-collapse ul li a').click(function() {
 		return false;
 	});
 
-          }
-        };
-      })(jQuery);
-
+});
 
 /* parallax background image http://www.minimit.com/articles/lets-animate/parallax-backgrounds-with-centered-content
 /* detect touch */

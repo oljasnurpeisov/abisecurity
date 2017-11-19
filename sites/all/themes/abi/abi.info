@@ -14,6 +14,7 @@ engine = phptemplate
 stylesheets[screen][] = css/animate.css
 stylesheets[screen][] = css/bootstrap.min.css
 stylesheets[screen][] = css/font-awesome.min.css
+stylesheets[screen][] = fonts/icon-7-stroke/css/pe-icon-7-stroke.css
 stylesheets[screen][] = css/layout.css
 stylesheets[screen][] = css/owl.carousel.css
 stylesheets[screen][] = css/owl.theme.css
@@ -21,11 +22,10 @@ stylesheets[screen][] = css/css-index.css
 
 scripts[] = js/bootstrap.min.js
 scripts[] = js/custom.js
-scripts[] = js/ekko-lightbox-min.js
-scripts[] = js/jquery.js
 scripts[] = js/jquery.sticky.js
-scripts[] = js/owl.carousel.min.js
 scripts[] = js/wow.min.js
+scripts[] = js/owl.carousel.min.js
+scripts[] = js/ekko-lightbox-min.js
 ; Regions --------------------------------------------------------------------
 ; these content regions are available for block placement
 ; some are special hidden regions: page_top, page_bottom, and help

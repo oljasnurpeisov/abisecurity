@@ -40,6 +40,9 @@
   <title><?php print $head_title; ?></title>
   <?php print $styles; ?>
   <?php print $scripts; ?>
+  <script>
+      new WOW().init();
+  </script>
   <?php if (!empty($html5shim)) { print $html5shim; } ?>
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?> data-spy="scroll" data-target="#navbar-scroll">

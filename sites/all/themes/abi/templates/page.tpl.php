@@ -1,74 +1,10 @@
 <?php
 
-/**
- * @file
- * Default theme implementation to display a single Drupal page.
- *
- * Available variables:
- *
- * General utility variables:
- * - $base_path: The base URL path of the Drupal installation. At the very
- *   least, this will always default to /.
- * - $directory: The directory the template is located in, e.g. modules/system
- *   or themes/garland.
- * - $is_front: TRUE if the current page is the front page.
- * - $logged_in: TRUE if the user is registered and signed in.
- * - $is_admin: TRUE if the user has permission to access administration pages.
- *
- * Site identity:
- * - $front_page: The URL of the front page. Use this instead of $base_path,
- *   when linking to the front page. This includes the language domain or
- *   prefix.
- * - $logo: The path to the logo image, as defined in theme configuration.
- * - $site_name: The name of the site, empty when display has been disabled
- *   in theme settings.
- * - $site_slogan: The slogan of the site, empty when display has been disabled
- *   in theme settings.
- *
- * Navigation:
- * - $main_menu (array): An array containing the Main menu links for the
- *   site, if they have been configured.
- * - $secondary_menu (array): An array containing the Secondary menu links for
- *   the site, if they have been configured.
- * - $breadcrumb: The breadcrumb trail for the current page.
- *
- * Page content (in order of occurrence in the default page.tpl.php):
- * - $title_prefix (array): An array containing additional output populated by
- *   modules, intended to be displayed in front of the main title tag that
- *   appears in the template.
- * - $title: The page title, for use in the actual HTML content.
- * - $title_suffix (array): An array containing additional output populated by
- *   modules, intended to be displayed after the main title tag that appears in
- *   the template.
- * - $messages: HTML for status and error messages. Should be displayed
- *   prominently.
- * - $tabs (array): Tabs linking to any sub-pages beneath the current page
- *   (e.g., the view and edit tabs when displaying a node).
- * - $action_links (array): Actions local to the page, such as 'Add menu' on the
- *   menu administration interface.
- * - $feed_icons: A string of all feed icons for the current page.
- * - $node: The node object, if there is an automatically-loaded node
- *   associated with the page, and the node ID is the second argument
- *   in the page's path (e.g. node/12345 and node/12345/revisions, but not
- *   comment/reply/12345).
- *
- * Regions:
- * - $page['help']: Dynamic help text, mostly for admin pages.
- * - $page['highlighted']: Items for the highlighted content region.
- * - $page['content']: The main content of the current page.
- * - $page['sidebar_first']: Items for the first sidebar.
- * - $page['sidebar_second']: Items for the second sidebar.
- * - $page['header']: Items for the header region.
- * - $page['footer']: Items for the footer region.
- *
- * @see template_preprocess()
- * @see template_preprocess_page()
- * @see template_process()
- */
 ?>
 
 <div id="page-wrapper"><div id="page">
-  <!-- <div id="preloader"></div> -->
+  <!-- /.preloader -->
+  <div id="preloader"></div>
   <div id="top"></div>
 <!-- /.parallax full screen background image -->
   <header id="header" role="banner">
@@ -149,152 +85,450 @@
   </div>
 
 
-  <div class="post__text post__text-html js-mediator-article">JavaScript может быть кошмаром при отладке: некоторые ошибки, которые он выдает, могут быть очень трудны для понимания с первого взгляда, и выдаваемые номера строк также не всегда полезны. Разве не было бы полезно иметь список, глядя на который, можно понять смысл ошибок и как исправить их? Вот он!<br>
-  <br>
-  Ниже представлен список странных ошибок в JavaScript. Разные браузеры могут выдавать разные сообщения об одинаковых ошибках, поэтому приведено несколько примеров там, где возможно.<br>
-  <a name="habracut"></a><br>
-  <h3>Как читать ошибки?</h3><br>
-  Перед самим списком, давайте быстро взглянем на структуру сообщения об ошибке. Понимание структуры помогает понимать ошибки, и вы получите меньше проблем, если наткнетесь на ошибки, не представленные в этом списке.<br>
-  <br>
-  Типичная ошибка из Chrome выглядит так:<br>
-  <br>
-  <pre><code class="javascript hljs">Uncaught <span class="hljs-built_in">TypeError</span>: <span class="hljs-literal">undefined</span> is not a <span class="hljs-function"><span class="hljs-keyword">function</span>
-  </span></code></pre><br>
-  Структура ошибки следующая:<br>
-  <ol>
-  <li><strong>Uncaught TypeError</strong>: эта часть сообщения обычно не особо полезна. <code>Uncaught</code> значит, что ошибка не была перехвачена в <code>catch</code>, а <code>TypeError</code> — это название ошибки.</li>
-  <li><strong>undefined is not a function</strong>: это та самая часть про ошибку. В случае с сообщениями об ошибках, читать их нужно прямо буквально. Например, в этом случае, она значит то, что код попытался использовать значение <code>undefined</code> как функцию.</li>
-  </ol><br>
-  Другие webkit-браузеры, такие как Safari, выдают ошибки примерно в таком же формате, как и Chrome. Ошибки из Firefox похожи, но не всегда включают в себя первую часть, и последние версии Internet Explorer также выдают более простые ошибки, но в этом случае проще — не всегда значит лучше.<br>
-  <br>
-  Теперь к самим ошибкам.<br>
-  <br>
-  <h3>Uncaught TypeError: undefined is not a function</h3><br>
-  <b>Связанные ошибки:</b> number is not a function, object is not a function, string is not a function, Unhandled Error: ‘foo’ is not a function, Function Expected<br>
-  <br>
-  Возникает при попытке вызова значения как функции, когда значение функцией не является. Например:<br>
-  <br>
-  <pre><code class="javascript hljs"><span class="hljs-keyword">var</span> foo = <span class="hljs-literal">undefined</span>;
-  foo();
-  </code></pre><br>
-  Эта ошибка обычно возникает, если вы пытаетесь вызвать функцию для объекта, но опечатались в названии.<br>
-  <br>
-  <pre><code class="javascript hljs"><span class="hljs-keyword">var</span> x = <span class="hljs-built_in">document</span>.getElementByID(<span class="hljs-string">'foo'</span>);
-  </code></pre><br>
-  Несуществующие свойства объекта по-умолчанию имеют значение <code>undefined</code>, что приводит к этой ошибке.<br>
-  <br>
-  Другие вариации, такие как “number is not a function” возникают при попытке вызвать число, как будто оно является функцией.<br>
-  <br>
-  <b>Как исправить ошибку:</b> убедитесь в корректности имени функции. Для этой ошибки, номер строки обычно указывает в правильное место.<br>
-  <br>
-  <h3>Uncaught ReferenceError: Invalid left-hand side in assignment</h3><br>
-  <b>Связанные ошибки:</b> Uncaught exception: ReferenceError: Cannot assign to ‘functionCall()’, Uncaught exception: ReferenceError: Cannot assign to ‘this’<br>
-  <br>
-  Вызвано попыткой присвоить значение тому, чему невозможно присвоить значение.<br>
-  <br>
-  Наиболее частый пример этой ошибки — это условие в if:<br>
-  <br>
-  <pre><code class="javascript hljs"><span class="hljs-keyword">if</span>(doSomething() = <span class="hljs-string">'somevalue'</span>)
-  </code></pre><br>
-  В этом примере программист случайно использовал один знак равенства вместо двух. Выражение “left-hand side in assignment” относится к левой части знака равенства, а, как можно видеть в данном примере, левая часть содержит что-то, чему нельзя присвоить значение, что и приводит к ошибке.<br>
-  <br>
-  <b>Как исправить ошибку:</b> убедитесь, что вы не пытаетесь присвоить значение результату функции или ключевому слову <code>this</code>.<br>
-  <br>
-  <h3>Uncaught TypeError: Converting circular structure to JSON</h3><br>
-  <b>Связанные ошибки:</b> Uncaught exception: TypeError: JSON.stringify: Not an acyclic Object, TypeError: cyclic object value, Circular reference in value argument not supported<br>
-  <br>
-  Всегда вызвано циклической ссылкой в объекте, которая потом передается в <code>JSON.stringify</code>.<br>
-  <br>
-  <pre><code class="javascript hljs"><span class="hljs-keyword">var</span> a = { };
-  <span class="hljs-keyword">var</span> b = { a: a };
-  a.b = b;
-  <span class="hljs-built_in">JSON</span>.stringify(a);
-  </code></pre><br>
-  Так как <code>a</code> и <code>b</code> в примере выше имеют ссылки друг на друга, результирующий объект не может быть приведен к JSON.<br>
-  <br>
-  <b>Как исправить ошибку:</b> удалите циклические ссылки, как в примере выше, из всех объектов, которые вы хотите сконвертировать в JSON.<br>
-  <br>
-  <h3>Unexpected token ;</h3><br>
-  <b>Связанные ошибки:</b> Expected ), missing ) after argument list<br>
-  <br>
-  Интерпретатор JavaScript что-то ожидал, но не обнаружил там этого. Обычно вызвано пропущенными фигурными, круглыми или квадратными скобками.<br>
-  <br>
-  Токен в данной ошибке может быть разным — может быть написано “Unexpected token ]”, “Expected {” или что-то еще.<br>
-  <br>
-  <b>Как исправить ошибку:</b> иногда номер строки не указывает на правильное местоположение, что затрудняет исправление ошибки.<br>
-  <br>
-  Ошибка с [ ] { } ( ) обычно вызвано несовпадающей парой. Проверьте, все ли ваши скобки имеют закрывающую пару. В этом случае, номер строки обычно указывает на что-то другое, а не на проблемный символ.<br>
-  <br>
-  Unexpected / связано с регулярными выражениями. Номер строки для данного случая обычно правильный.<br>
-  <br>
-  Unexpected; обычно вызвано символом; внутри литерала объекта или массива, или списка аргументов вызова функции. Номер строки обычно также будет верным для данного случая.<br>
-  <br>
-  <h3>Uncaught SyntaxError: Unexpected token ILLEGAL</h3><br>
-  <b>Связанные ошибки:</b> Unterminated String Literal, Invalid Line Terminator<br>
-  <br>
-  В строковом литерале пропущена закрывающая кавычка.<br>
-  <br>
-  <b>Как исправить ошибку:</b> убедитесь, что все строки имеют правильные закрывающие кавычки.<br>
-  <br>
-  <h3>Uncaught TypeError: Cannot read property ‘foo’ of null, Uncaught TypeError: Cannot read property ‘foo’ of undefined</h3><br>
-  <b>Связанные ошибки:</b> TypeError: someVal is null, Unable to get property ‘foo’ of undefined or null reference<br>
-  <br>
-  Попытка прочитать <code>null</code> или <code>undefined</code> так, как будто это объект. Например:<br>
-  <br>
-  <pre><code class="javascript hljs"><span class="hljs-keyword">var</span> someVal = <span class="hljs-literal">null</span>;
-  <span class="hljs-built_in">console</span>.log(someVal.foo);
-  </code></pre><br>
-  <b>Как исправить ошибку:</b> обычно вызвано опечатками. Проверьте, все ли переменные, использованные рядом со строкой, указывающей на ошибку, правильно названы.<br>
-  <br>
-  <h3>Uncaught TypeError: Cannot set property ‘foo’ of null, Uncaught TypeError: Cannot set property ‘foo’ of undefined</h3><br>
-  <b>Связанные ошибки:</b> TypeError: someVal is undefined, Unable to set property ‘foo’ of undefined or null reference<br>
-  <br>
-  Попытка записать <code>null</code> или <code>undefined</code> так, как будто это объект. Например:<br>
-  <br>
-  <pre><code class="javascript hljs"><span class="hljs-keyword">var</span> someVal = <span class="hljs-literal">null</span>;
-  someVal.foo = <span class="hljs-number">1</span>;
-  </code></pre><br>
-  <b>Как исправить ошибку:</b> это тоже обычно вызвано ошибками. Проверьте имена переменных рядом со строкой, указывающей на ошибку.<br>
-  <br>
-  <h3>Uncaught RangeError: Maximum call stack size exceeded</h3><br>
-  <b>Связанные ошибки:</b> Uncaught exception: RangeError: Maximum recursion depth exceeded, too much recursion, Stack overflow<br>
-  <br>
-  Обычно вызвано неправильно программной логикой, что приводит к бесконечному вызову рекурсивной функции.<br>
-  <br>
-  <b>Как исправить ошибку:</b> проверьте рекурсивные функции на ошибки, которые могут вынудить их делать рекурсивные вызовы вечно.<br>
-  <br>
-  <h3>Uncaught URIError: URI malformed</h3><br>
-  <b>Связанные ошибки:</b> URIError: malformed URI sequence<br>
-  <br>
-  Вызвано некорректным вызовом <code>decodeURIComponent</code>.<br>
-  <br>
-  <b>Как исправить ошибку:</b> убедитесь, что вызовы decodeURIComponent на строке ошибки получают корректные входные данные.<br>
-  <br>
-  <h3>XMLHttpRequest cannot load <a href="http://some/url/">some/url</a>. No ‘Access-Control-Allow-Origin’ header is present on the requested resource</h3><br>
-  <b>Связанные ошибки:</b> Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at <a href="http://some/url/">some/url</a><br>
-  <br>
-  Эта проблема всегда связана с использованием XMLHttpRequest.<br>
-  <br>
-  <b>Как исправить ошибку:</b> убедитесь в корректности запрашиваемого URL и в том, что он удовлетворяет <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy">same-origin policy</a>. Хороший способ найти проблемный код — посмотреть на URL в сообщении ошибки и найти его в своём коде.<br>
-  <br>
-  <h3>InvalidStateError: An attempt was made to use an object that is not, or is no longer, usable</h3><br>
-  <b>Связанные ошибки:</b> InvalidStateError, DOMException code 11<br>
-  <br>
-  Означает то, что код вызвал функцию, которую нельзя было вызывать в текущем состоянии. Обычно связано c <code>XMLHttpRequest</code> при попытке вызвать на нём функции до его готовности.<br>
-  <br>
-  <pre><code class="javascript hljs"><span class="hljs-keyword">var</span> xhr = <span class="hljs-keyword">new</span> XMLHttpRequest();
-  xhr.setRequestHeader(<span class="hljs-string">'Some-Header'</span>, <span class="hljs-string">'val'</span>);
-  </code></pre><br>
-  В данном случае вы получите ошибку потому, что функция <code>setRequestHeader</code> может быть вызвана только после вызова <code>xhr.open</code>.<br>
-  <br>
-  <b>Как исправить ошибку:</b> посмотрите на код в строке, указывающей на ошибку, и убедитесь, что он вызывается в правильный момент или добавляет нужные вызовы до этого (как с <code>xhr.open</code>).<br>
-  <br>
-  <h3>Заключение</h3><br>
-  JavaScript содержит в себе одни из самых бесполезных ошибок, которые я когда-либо видел, за исключением печально известной <code>Expected T_PAAMAYIM_NEKUDOTAYIM</code> в PHP. Большая ознакомленность с ошибками привносит больше ясности. Современные браузеры тоже помогают, так как больше не выдают абсолютно бесполезные ошибки, как это было раньше.<br>
-  <br>
-  Какие самые непонятные ошибки вы встречали? Делитесь своими наблюдениями в комментариях.<br>
-  <br>
-  P.S. Этот перевод можно улучшить, отправив PR <a href="https://github.com/olegafx/translations/blob/master/JavaScript%20Errors%20and%20How%20to%20Fix%20Them.md">здесь</a>.</div>
+  <!-- /.intro section -->
+  <div id="intro">
+      <div class="container">
+          <div class="row">
+
+              <!-- /.intro image -->
+              <div class="col-md-6 intro-pic wow slideInLeft">
+                  <img src="<?php print path_to_theme(); ?>/images/ipad.jpg" alt="ipad" class="img-responsive">
+              </div>
+
+              <!-- /.intro content -->
+              <div class="col-md-6 wow slideInRight">
+                  <h2>Optimize performance through advanced targeting solutions</h2>
+                  <p>Good marketing makes the company look smart. <a href="#">Great marketing</a> makes the customer feel smart, - Joe Chernov. Never doubt a small group of thoughtful, committed people can change the world. Indeed, it is the only thing that ever has, - Margaret Mead. The best way to predict the future is to create it, - Peter Drucker.
+                  </p>
+
+                  <div class="btn-section"><a href="#feature" class="btn-default">Learn More</a></div>
+
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- /.feature section -->
+  <div id="feature">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-10 col-md-offset-1 col-sm-12 text-center feature-title">
+
+                  <!-- /.feature title -->
+                  <h2>Recreate your ideas and gain more success</h2>
+                  <p>Increase your user loyalty by maintaining mutual communication and nurturing your online community.</p>
+              </div>
+          </div>
+          <div class="row row-feat">
+              <div class="col-md-4 text-center">
+
+                  <!-- /.feature image -->
+                  <div class="feature-img">
+                      <img src="<?php print path_to_theme(); ?>/images/iphone.jpg" alt="iphone" class="img-responsive wow fadeInLeft">
+                  </div>
+              </div>
+
+              <div class="col-md-8">
+
+                  <!-- /.feature 1 -->
+                  <div class="col-sm-6 feat-list">
+                      <i class="pe-7s-notebook pe-5x pe-va wow fadeInUp"></i>
+                      <div class="inner">
+                          <h4>Marketing Strategy</h4>
+                          <p>Good marketing makes the company look smart. Great marketing makes the customer feel smart.
+                          </p>
+                      </div>
+                  </div>
+
+                  <!-- /.feature 2 -->
+                  <div class="col-sm-6 feat-list">
+                      <i class="pe-7s-cash pe-5x pe-va wow fadeInUp" data-wow-delay="0.2s"></i>
+                      <div class="inner">
+                          <h4>App Monetization</h4>
+                          <p>Content builds relationships. Relationships are built on trust. Trust drives revenue. - Andrew Davis</p>
+                      </div>
+                  </div>
+
+                  <!-- /.feature 3 -->
+                  <div class="col-sm-6 feat-list">
+                      <i class="pe-7s-cart pe-5x pe-va wow fadeInUp" data-wow-delay="0.4s"></i>
+                      <div class="inner">
+                          <h4>Store Optimization</h4>
+                          <p>Never doubt a small group of thoughtful, committed people can change the world. Indeed, it is the only thing that ever has.</p>
+                      </div>
+                  </div>
+
+                  <!-- /.feature 4 -->
+                  <div class="col-sm-6 feat-list">
+                      <i class="pe-7s-users pe-5x pe-va wow fadeInUp" data-wow-delay="0.6s"></i>
+                      <div class="inner">
+                          <h4>User Management</h4>
+                          <p>Instead of using technology to automate processes, think about using technology to enhance human interaction.</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- /.feature 2 section -->
+  <div id="feature-2">
+      <div class="container">
+          <div class="row">
+
+              <!-- /.feature content -->
+              <div class="col-md-6 wow fadeInLeft">
+                  <h2>Learn how to make your app marketing efficient</h2>
+                  <p>Good marketing makes the company look smart. <span class="highlight">Great marketing</span> makes the customer feel smart, - Joe Chernov. Never doubt a small group of thoughtful, committed people can change the world. Indeed, it is the only thing that ever has, - Margaret Mead. The best way to predict the future is to create it, - Peter Drucker.
+                  </p>
+
+                  <div class="btn-section"><a href="#download" class="btn-default">Download Now</a></div>
+
+              </div>
+
+              <!-- /.feature image -->
+              <div class="col-md-6 feature-2-pic wow fadeInRight">
+                  <img src="<?php print path_to_theme(); ?>/images/macbook.jpg" alt="macbook" class="img-responsive">
+              </div>
+          </div>
+
+      </div>
+  </div>
+
+
+  <!-- /.subscribe section -->
+  <div id="download">
+      <div class="action fullscreen parallax" style="background-image:url('<?php print path_to_theme(); ?>/images/macbook-336704.jpg');" data-img-width="1920" data-img-height="1281" data-diff="100">
+          <div class="overlay">
+              <div class="container">
+                  <div class="col-md-8 col-md-offset-2 col-sm-12 text-center">
+                      <h2>Would like to know more?</h2>
+                      <p class="download-text">We'll research the market, identify the right target audience, analyze competitors and avoid users churn to increase retention. Download now for free and join with thousands happy clients.</p>
+
+                      <!-- /.subscribe form -->
+                      <div class="subscribe-form wow fadeInUp">
+                          <form class="news-letter mailchimp" action="http://moxdesign.us10.list-manage.com/subscribe/post" role="form" method="POST">
+                              <input type="hidden" name="u" value="503bdae81fde8612ff4944435">
+                              <input type="hidden" name="id" value="bfdba52708">
+                              <input class="form-control" type="email" name="MERGE0" placeholder="Your email..." required="">
+                              <button type="submit" class="subscribe-btn btn">SUBSCRIBE</button>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- /.pricing section -->
+  <div id="package">
+      <div class="container">
+          <div class="text-center">
+
+              <!-- /.pricing title -->
+              <h2 class="wow fadeInLeft">PACKAGES</h2>
+              <div class="title-line wow fadeInRight"></div>
+          </div>
+          <div class="row package-option">
+
+              <!-- /.package 1 -->
+              <div class="col-sm-3">
+                  <div class="price-box wow fadeInUp">
+                      <div class="price-heading text-center">
+
+                          <!-- /.package icon -->
+                          <i class="pe-7s-radio pe-5x"></i>
+
+                          <!-- /.package name -->
+                          <h3>Basic</h3>
+                      </div>
+
+                      <!-- /.price -->
+                      <div class="price-group text-center">
+                          <span class="dollar">$</span>
+                          <span class="price">9</span>
+                          <span class="time">/mo</span>
+                      </div>
+
+                      <!-- /.package features -->
+                      <ul class="price-feature text-center">
+                          <li><strong>100MB</strong> Disk Space</li>
+                          <li><strong>200MB</strong> Bandwidth</li>
+                          <li><strong>2</strong> Subdomains</li>
+                          <li><strong>5</strong> Email Accounts</li>
+                          <li><strike>Webmail Support</strike></li>
+                      </ul>
+
+                      <!-- /.package button -->
+                      <div class="price-footer text-center">
+                          <a class="btn btn-price" href="#">BUY NOW</a>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- /.package 2 -->
+              <div class="col-sm-3">
+                  <div class="price-box wow fadeInUp" data-wow-delay="0.2s">
+                      <div class="price-heading text-center">
+
+                          <!-- /.package icon -->
+                          <i class="pe-7s-joy pe-5x"></i>
+
+                          <!-- /.package name -->
+                          <h3>Standard</h3>
+                      </div>
+
+                      <!-- /.price -->
+                      <div class="price-group text-center">
+                          <span class="dollar">$</span>
+                          <span class="price">19</span>
+                          <span class="time">/mo</span>
+                      </div>
+
+                      <!-- /.package features -->
+                      <ul class="price-feature text-center">
+                          <li><strong>300MB</strong> Disk Space</li>
+                          <li><strong>400MB</strong> Bandwidth</li>
+                          <li><strong>5</strong> Subdomains</li>
+                          <li><strong>10</strong> Email Accounts</li>
+                          <li><strike>Webmail Support</strike></li>
+                      </ul>
+
+                      <!-- /.package button -->
+                      <div class="price-footer text-center">
+                          <a class="btn btn-price" href="#">BUY NOW</a>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- /.package 3 -->
+              <div class="col-sm-3">
+                  <div class="price-box wow fadeInUp" data-wow-delay="0.4s">
+                      <div class="price-heading text-center">
+
+                          <!-- /.package icon -->
+                          <i class="pe-7s-science pe-5x"></i>
+
+                          <!-- /.package name -->
+                          <h3>Advance</h3>
+                      </div>
+
+                      <!-- /.price -->
+                      <div class="price-group text-center">
+                          <span class="dollar">$</span>
+                          <span class="price">29</span>
+                          <span class="time">/mo</span>
+                      </div>
+
+                      <!-- /.package features -->
+                      <ul class="price-feature text-center">
+                          <li><strong>1GB</strong> Disk Space</li>
+                          <li><strong>1GB</strong> Bandwidth</li>
+                          <li><strong>10</strong> Subdomains</li>
+                          <li><strong>25</strong> Email Accounts</li>
+                          <li>Webmail Support</li>
+                      </ul>
+
+                      <!-- /.package button -->
+                      <div class="price-footer text-center">
+                          <a class="btn btn-price" href="#">BUY NOW</a>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- /.package 4 -->
+              <div class="col-sm-3">
+                  <div class="price-box wow fadeInUp" data-wow-delay="0.6s">
+                      <div class="price-heading text-center">
+
+                          <!-- /.package icon -->
+                          <i class="pe-7s-tools pe-5x"></i>
+
+                          <!-- /.package name -->
+                          <h3>Ultimate</h3>
+                      </div>
+
+                      <!-- /.price -->
+                      <div class="price-group text-center">
+                          <span class="dollar">$</span>
+                          <span class="price">49</span>
+                          <span class="time">/mo</span>
+                      </div>
+
+                      <!-- /.package features -->
+                      <ul class="price-feature text-center">
+                          <li><strong>5GB</strong> Disk Space</li>
+                          <li><strong>5GB</strong> Bandwidth</li>
+                          <li><strong>50</strong> Subdomains</li>
+                          <li><strong>50</strong> Email Accounts</li>
+                          <li>Webmail Support</li>
+                      </ul>
+
+                      <!-- /.package button -->
+                      <div class="price-footer text-center">
+                          <a class="btn btn-price" href="#">BUY NOW</a>
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+      </div>
+  </div>
+
+  <!-- /.client section -->
+  <div id="client">
+      <div class="container">
+          <div class="row">
+              <div class="col-sm-12 text-center">
+                  <img alt="client" src="<?php print path_to_theme(); ?>/images/client1.png" class="wow fadeInUp">
+                  <img alt="client" src="<?php print path_to_theme(); ?>/images/client2.png" class="wow fadeInUp" data-wow-delay="0.2s">
+                  <img alt="client" src="<?php print path_to_theme(); ?>/images/client3.png" class="wow fadeInUp" data-wow-delay="0.4s">
+                  <img alt="client" src="<?php print path_to_theme(); ?>/images/client4.png" class="wow fadeInUp" data-wow-delay="0.6s">
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- /.testimonial section -->
+  <div id="testi">
+      <div class="container">
+          <div class="text-center">
+              <h2 class="wow fadeInLeft">TESTIMONIALS</h2>
+              <div class="title-line wow fadeInRight"></div>
+          </div>
+          <div class="row">
+              <div class="col-sm-10 col-sm-offset-1">
+                  <div id="owl-testi" class="owl-carousel owl-theme wow fadeInUp">
+
+                      <!-- /.testimonial 1 -->
+                      <div class="testi-item">
+                          <div class="client-pic text-center">
+
+                              <!-- /.client photo -->
+                              <img src="<?php print path_to_theme(); ?>/images/testi1.jpg" alt="client">
+                          </div>
+                          <div class="box">
+
+                              <!-- /.testimonial content -->
+                              <p class="message text-center">"We are very happy and satisfied with Backyard service. Our account manager is efficient and very knowledgeable. It was able to create a vast fan base within very short period of time. We would highly recommend Backyard App to anyone."</p>
+                          </div>
+                          <div class="client-info text-center">
+
+                              <!-- /.client name -->
+                              Jennifer Lopez, <span class="company">Microsoft</span>
+                          </div>
+                      </div>
+
+                      <!-- /.testimonial 2 -->
+                      <div class="testi-item">
+                          <div class="client-pic text-center">
+
+                              <!-- /.client photo -->
+                              <img src="<?php print path_to_theme(); ?>/images/testi2.jpg" alt="client">
+                          </div>
+                          <div class="box">
+
+                              <!-- /.testimonial content -->
+                              <p class="message text-center">"Everything looks great... Thanks for the quick revision turn around. We were lucky to find you guys and will definitely be using some of your other services in the near future."</p>
+                          </div>
+                          <div class="client-info text-center">
+
+                              <!-- /.client name -->
+                              Mike Portnoy, <span class="company">Dream Theater</span>
+                          </div>
+                      </div>
+
+                      <!-- /.testimonial 3 -->
+                      <div class="testi-item">
+                          <div class="client-pic text-center">
+
+                              <!-- /.client photo -->
+                              <img src="<?php print path_to_theme(); ?>/images/testi3.jpg" alt="client">
+                          </div>
+                          <div class="box">
+
+                              <!-- /.testimonial content -->
+                              <p class="message text-center">"Overall, the two reports were very clear and helpful so thank you for the suggestion to do the focus group. We are currently working with our developer to implement some of these suggestions."</p>
+                          </div>
+                          <div class="client-info text-center">
+
+                              <!-- /.client name -->
+                              Jennifer Love Hewitt, <span class="company">Lead Vocal</span>
+                          </div>
+                      </div>
+
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- /.contact section -->
+  <div id="contact">
+      <div class="contact fullscreen parallax" style="background-image:url('<?php print path_to_theme(); ?>/images/bg2.jpg');" data-img-width="2000" data-img-height="1334" data-diff="100">
+          <div class="overlay">
+              <div class="container">
+                  <div class="row contact-row">
+
+                      <!-- /.address and contact -->
+                      <div class="col-sm-5 contact-left wow fadeInUp">
+                          <h2><span class="highlight">Get</span> in touch</h2>
+                          <ul class="ul-address">
+                              <li><i class="pe-7s-map-marker"></i>1600 Amphitheatre Parkway, Mountain View</br>
+                                  California 55000
+                              </li>
+                              <li><i class="pe-7s-phone"></i>+1 (123) 456-7890</br>
+                                  +2 (123) 456-7890
+                              </li>
+                              <li><i class="pe-7s-mail"></i><a href="mailto:info@yoursite.com">info@yoursite.com</a></li>
+                              <li><i class="pe-7s-look"></i><a href="#">www.yoursite.com</a></li>
+                          </ul>
+
+                      </div>
+
+                      <!-- /.contact form -->
+                      <div class="col-sm-7 contact-right">
+                          <form method="POST" id="contact-form" class="form-horizontal" action="contactengine.php" onSubmit="alert( 'Thank you for your feedback!' );">
+                              <div class="form-group">
+                                  <input type="text" name="Name" id="Name" class="form-control wow fadeInUp" placeholder="Name" required/>
+                              </div>
+                              <div class="form-group">
+                                  <input type="text" name="Email" id="Email" class="form-control wow fadeInUp" placeholder="Email" required/>
+                              </div>
+                              <div class="form-group">
+                                  <textarea name="Message" rows="20" cols="20" id="Message" class="form-control input-message wow fadeInUp"  placeholder="Message" required></textarea>
+                              </div>
+                              <div class="form-group">
+                                  <input type="submit" name="submit" value="Submit" class="btn btn-success wow fadeInUp" />
+                              </div>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- /.footer -->
+  <footer id="footer">
+      <div class="container">
+          <div class="col-sm-4 col-sm-offset-4">
+              <!-- /.social links -->
+              <div class="social text-center">
+                  <ul>
+                      <li><a class="wow fadeInUp" href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
+                      <li><a class="wow fadeInUp" href="https://www.facebook.com/" data-wow-delay="0.2s"><i class="fa fa-facebook"></i></a></li>
+                      <li><a class="wow fadeInUp" href="https://plus.google.com/" data-wow-delay="0.4s"><i class="fa fa-google-plus"></i></a></li>
+                      <li><a class="wow fadeInUp" href="https://instagram.com/" data-wow-delay="0.6s"><i class="fa fa-instagram"></i></a></li>
+                  </ul>
+              </div>
+              <div class="text-center wow fadeInUp" style="font-size: 14px;">Copyright Backyard 2015 - Template by  <a href="http://bootstrapthemes.co/" target="_blank">BootstrapThemes</a></div>
+              <a href="#" class="scrollToTop"><i class="pe-7s-up-arrow pe-va"></i></a>
+          </div>
+      </div>
+  </footer>
+
+
   <div id="main-wrapper"><div id="main" class="clearfix<?php if ($main_menu) { print ' with-navigation'; } ?>">
 
     <div id="content" class="column" role="main"><div class="section">
