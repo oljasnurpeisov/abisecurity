@@ -39,16 +39,16 @@
   <?php print $head; ?>
   <title><?php print $head_title; ?></title>
   <?php print $styles; ?>
+  <?php if (!empty($html5shim)) { print $html5shim; } ?>
+</head>
+<body data-spy="scroll" data-target="#navbar-scroll">
+
+  <?php print $page_top; ?>
+  <?php print $page; ?>
   <?php print $scripts; ?>
   <script>
       new WOW().init();
   </script>
-  <?php if (!empty($html5shim)) { print $html5shim; } ?>
-</head>
-<body class="<?php print $classes; ?>" <?php print $attributes;?> data-spy="scroll" data-target="#navbar-scroll">
-
-  <?php print $page_top; ?>
-  <?php print $page; ?>
   <?php print $page_bottom; ?>
 
 </body>

@@ -437,6 +437,10 @@ a:hover {
 	background: #1f96e0;
 	color: white;
 }
+.clientsLogo {
+	display: inline-block;
+}
+
 #client {
 	background: #f6f6f6;
 	padding: 70px 0 70px;
@@ -818,7 +822,8 @@ and (orientation : landscape) {
 }
 
 /* smart-phone ----------- */
-@media (max-width: 767px) {
+@media only screen
+and (max-width: 767px) {
 	.logo {
 		margin: 40px 0 30px 0;
 	}

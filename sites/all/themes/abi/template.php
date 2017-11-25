@@ -59,7 +59,16 @@ function abi_preprocess_html(&$vars) {
  $shimset = theme_get_setting('abi_shim');
  $script = theme('html_tag', $element);
  //If the theme setting for adding the html5shim is checked, set the variable.
- if ($shimset == 1) { $vars['html5shim'] = "\n<!--[if lt IE 9]>\n" . $script . "<![endif]-->\n"; }
+ if ($shimset == 1) { $vars['html5shim'] = "\n<!--[if lt IE 9]>\n" . $script . "<![endif]-->\n";
+ }
+ drupal_add_html_head(array(
+  '#type' => 'html_tag',
+  '#tag' => 'meta',
+  '#attributes' => array(
+    'name' => 'viewport',
+    'content' => 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no',
+  )
+), 'meta_viewport');
 
 }
 

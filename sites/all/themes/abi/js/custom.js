@@ -42,19 +42,19 @@
 
 /* scrollspy */
 (function ($) {
-$('body').scrollspy({ target: '#navbar-scroll' })
+  $('body').scrollspy({ target: '#navbar-scroll' })
 
-// Closes the Responsive Menu on Menu Item Click
-$('.navbar-collapse ul li a').click(function() {
-    $('.navbar-toggle:visible').click();
-});
+  // Closes the Responsive Menu on Menu Item Click
+  $('.navbar-collapse ul li a').click(function() {
+      $('.navbar-toggle:visible').click();
+  });
 }) (jQuery);
+
 
 /* sticky navigation */
 (function ($) {
       Drupal.behaviors.menu =  {
         attach: function(context, settings) {
-
           $('#menu').sticky({topSpacing:0});
         }
       };
@@ -99,6 +99,8 @@ $('.navbar-collapse ul li a').click(function() {
 
 /* parallax background image http://www.minimit.com/articles/lets-animate/parallax-backgrounds-with-centered-content
 /* detect touch */
+(function ($) {
+  $(function () {
 if("ontouchstart" in window){
     document.documentElement.className = document.documentElement.className + " touch";
 }
@@ -106,22 +108,28 @@ if(!$("html").hasClass("touch")){
     /* background fix */
     $(".parallax").css("background-attachment", "fixed");
 }
+});
+})(jQuery);
 
 /* fix vertical when not overflow
 call fullscreenFix() if .fullscreen content changes */
-function fullscreenFix(){
-    var h = $('body').height();
-    // set .fullscreen height
-    $(".content-b").each(function(i){
-        if($(this).innerHeight() <= h){
-            $(this).closest(".fullscreen").addClass("not-overflow");
-        }
-    });
-}
-$(window).resize(fullscreenFix);
-fullscreenFix();
+
+(function ($) {
+  function fullscreenFix(){
+      var h = $('body').height();
+      // set .fullscreen height
+      $(".content-b").each(function(i){
+          if($(this).innerHeight() <= h){
+              $(this).closest(".fullscreen").addClass("not-overflow");
+          }
+      });
+  }
+  $(window).resize(fullscreenFix);
+  fullscreenFix();
+})(jQuery);
 
 /* resize background images */
+(function ($) {
 function backgroundResize(){
     var windowH = $(window).height();
     $(".landing, .action, .contact, .subscribe").each(function(i){
@@ -158,8 +166,10 @@ function backgroundResize(){
 $(window).resize(backgroundResize);
 $(window).focus(backgroundResize);
 backgroundResize();
+})(jQuery);
 
 /* set parallax background-position */
+(function ($) {
 function parallaxPosition(e){
     var heightWindow = $(window).height();
     var topWindow = $(window).scrollTop();
@@ -197,3 +207,4 @@ if(!$("html").hasClass("touch")){
     $(window).scroll(parallaxPosition);
     parallaxPosition();
 }
+})(jQuery);
