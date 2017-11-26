@@ -1,4 +1,4 @@
-<div id="testi">
+<div id="testi" class="<?php print $classes; ?>"<?php print $attributes; ?>>
 	<div class="container">
 
   <?php print render($title_prefix); ?>

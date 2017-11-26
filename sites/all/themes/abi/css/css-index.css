@@ -267,7 +267,7 @@ a:hover {
 }
 #feature h2 {
 	margin: 15px 0 15px 0;
-	font-size: 40px;
+	font-size: 38px;
 	font-weight: 300;
 }
 #feature .feature-title p {
@@ -279,7 +279,7 @@ a:hover {
 .feat-list {
 	margin-top: 40px;
 }
-.feat-list i {
+.feat-list .features {
 	font-size: 48px;
 	float: left;
 	width: 20%;
@@ -289,6 +289,10 @@ a:hover {
 	opacity: 0.6;
 	-webkit-transition: all .8s ease;
 	transition: all .8s ease;
+}
+.feat-list .features img {
+	height: 48px;
+	width: auto;
 }
 .feat-list:hover i {
 	color: #3eb0f7;
@@ -856,7 +860,7 @@ and (max-width: 767px) {
 		padding-top: 10px;
 		padding-bottom: 40px;
 	}
-	.feat-list i {
+	.feat-list .features {
 		padding-left: 40px;
 	}
 	#feature-2 {
@@ -941,7 +945,7 @@ and (max-width: 767px) {
 	#feature {
 		padding-top: 50px;
 	}
-	.feat-list i {
+	.feat-list .features {
 		padding-left: 20px;
 	}
 	#feature-2 {
@@ -971,7 +975,7 @@ and (max-width: 767px) {
 
 /* iPhone 4 (landscape) ----------- */
 @media (max-width: 480px) {
-	.feat-list i {
+	.feat-list .features {
 		padding-left: 5px;
 	}
 	.action h2 {
@@ -987,7 +991,7 @@ and (max-width: 767px) {
 	#intro h2, #feature h2, #feature-2 h2 {
 		font-size: 30px;
 	}
-	.feat-list i {
+	.feat-list .features {
 		padding-left: 0;
 	}
 	#feature .inner {
