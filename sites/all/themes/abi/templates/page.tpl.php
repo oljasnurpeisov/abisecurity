@@ -18,7 +18,7 @@
     <?php if ($logo): ?>
       <div class="logo wow fadeInDown">
         <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo" class="logo wow fadeInDown">
-          <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
+
         </a>
       </div>
     <?php endif; ?>
@@ -43,8 +43,8 @@
       </div> <!-- /#name-and-slogan -->
     <?php endif; ?>
     <div class="head-btn wow fadeInLeft">
-        <a href="#feature" class="btn-primary">Features</a>
-        <a href="#download" class="btn-default">Download</a>
+        <a href="#feature" class="btn-primary">Услуги</a>
+        <a href="#contact" class="btn-default">Контакты</a>
     </div>
 
     <?php print render($page['header']); ?>
@@ -130,7 +130,7 @@
                             <h2>Would like to know more?</h2>
                             <p class="download-text">We'll research the market, identify the right target audience, analyze competitors and avoid users churn to increase retention. Download now for free and join with thousands happy clients.</p>
 
-                          
+
                             <div class="subscribe-form wow fadeInUp">
                                 <form class="news-letter mailchimp" action="http://moxdesign.us10.list-manage.com/subscribe/post" role="form" method="POST">
                                     <input type="hidden" name="u" value="503bdae81fde8612ff4944435">
@@ -152,45 +152,16 @@
                     <div class="container">
                         <div class="row contact-row">
 
-                            <!-- /.address and contact -->
-                            <div class="col-sm-5 contact-left wow fadeInUp">
-                                <h2><span class="highlight">Get</span> in touch</h2>
-                                <ul class="ul-address">
-                                    <li><i class="pe-7s-map-marker"></i>1600 Amphitheatre Parkway, Mountain View</br>
-                                        California 55000
-                                    </li>
-                                    <li><i class="pe-7s-phone"></i>+1 (123) 456-7890</br>
-                                        +2 (123) 456-7890
-                                    </li>
-                                    <li><i class="pe-7s-mail"></i><a href="mailto:info@yoursite.com">info@yoursite.com</a></li>
-                                    <li><i class="pe-7s-look"></i><a href="#">www.yoursite.com</a></li>
-                                </ul>
+                          <!--- Contact --->
+                          <?php if ($page['contact']): ?>
+                            <?php print render($page['contact']); ?>
+                          <?php endif; ?>
 
-                            </div>
-
-                            <!-- /.contact form -->
-                            <div class="col-sm-7 contact-right">
-                                <form method="POST" id="contact-form" class="form-horizontal" action="contactengine.php" onSubmit="alert( 'Thank you for your feedback!' );">
-                                    <div class="form-group">
-                                        <input type="text" name="Name" id="Name" class="form-control wow fadeInUp" placeholder="Name" required/>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" name="Email" id="Email" class="form-control wow fadeInUp" placeholder="Email" required/>
-                                    </div>
-                                    <div class="form-group">
-                                        <textarea name="Message" rows="20" cols="20" id="Message" class="form-control input-message wow fadeInUp"  placeholder="Message" required></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="submit" name="submit" value="Submit" class="btn btn-success wow fadeInUp" />
-                                    </div>
-                                </form>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
 
 
 
@@ -213,6 +184,8 @@
   </div></div> <!-- /#main, /#main-wrapper -->
   <footer id="footer" role="contentinfo"><div class="section">
     <?php print render($page['footer']); ?>
+    <div class="text-center wow fadeInUp" style="font-size: 16px;">© Астана - ABI Security - <?php print date('Y')?></div>
+    <a href="#" class="scrollToTop"><i class="pe-7s-up-arrow pe-va"></i></a>
   </div></footer> <!-- /.section, /#footer -->
 
 </div></div> <!-- /#page, /#page-wrapper -->

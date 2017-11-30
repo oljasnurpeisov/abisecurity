@@ -34,6 +34,7 @@ regions[header] = Header
 regions[footer] = Footer
 regions[content] = Content
 regions[highlighted] = Highlighted
+regions[contact] = Contact
 regions[sidebar_first] = Sidebar first
 regions[sidebar_second] = Sidebar second
 regions[page_top] = Page top

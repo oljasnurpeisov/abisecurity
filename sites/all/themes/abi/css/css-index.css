@@ -163,6 +163,9 @@ a:hover {
 	width: 150px;
 	height: 37px
 }
+.landing #name-and-slogan{
+	padding-top: 40px;
+}
 .landing h1{
 	font-size: 56px;
 	font-weight: 300;
@@ -262,7 +265,7 @@ a:hover {
 	padding-top: 20px;
 }
 #feature {
-	padding-top: 100px;
+	padding-top: 20px;
 	background: #f6f6f6;
 }
 #feature h2 {
@@ -552,7 +555,7 @@ a:hover {
 .ul-address i {
 	margin-left: 15px;
 	position: absolute;
-	left: 0;
+	left: -10px;
 	color: #3eb0f7;
 	font-size: 25px;
 	line-height: 30px;

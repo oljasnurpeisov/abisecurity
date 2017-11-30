@@ -16,7 +16,7 @@
 
           <!-- /.feature image -->
           <div class="feature-img">
-              <img src="<?php print path_to_theme(); ?>/images/iphone.jpg" alt="" class="img-responsive wow fadeInLeft">
+              <img src="<?php print path_to_theme(); ?>/images/features3.jpg" alt="" class="img-responsive wow fadeInLeft">
           </div>
       </div>
               <?php print $content ?>
