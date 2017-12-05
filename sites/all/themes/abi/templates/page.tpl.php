@@ -8,7 +8,7 @@
   <div id="top"></div>
 <!-- /.parallax full screen background image -->
   <header id="header" role="banner">
-    <div class="fullscreen landing parallax" style="background-image:url('<?php print path_to_theme(); ?>/images/headphones-405882.jpg');"  data-img-width="1913" data-img-height="1003" data-diff="100">
+    <div class="fullscreen landing parallax" style="background-image:url('<?php print path_to_theme(); ?>/images/headphones-405886.jpg');"  data-img-width="1913" data-img-height="1003" data-diff="100">
     <div class="overlay">
         <div class="container">
             <div class="row">
@@ -75,13 +75,9 @@
               <div id="navbar-scroll" class="collapse navbar-collapse navbar-backyard navbar-right">
                 <?php if ($main_menu): ?>
                   <nav id="navigation" role="navigation"><div class="section">
-                    <?php function replace_active_link($text) {
-  $pattern = "/<li[^>]* class=\"[^\"]*active[^\"]*\"[^>]*>([^<]*)<\/li>/";
-  $replace = "<li class=\"\">\${1}</li>";
-  return preg_replace($pattern, $replace, $text);
-}
+                    <?php
   $menu = theme('links__system_main_menu', array('links' => $main_menu, 'attributes' => array('id' => 'main-menu', 'class' => array('nav', 'navbar-nav'))));
-  print replace_active_link($menu);?>
+  print $menu;?>
                   </div></nav> <!-- /.section, /#navigation -->
                 <?php endif; ?>
               </div>
