@@ -18,7 +18,7 @@
     <?php if ($logo): ?>
       <div class="logo wow fadeInDown">
         <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo" class="logo wow fadeInDown">
-
+            <!-- <img src="<?php // print $logo; ?>" alt="logo"> -->
         </a>
       </div>
     <?php endif; ?>
